@@ -1,0 +1,22 @@
+<h1 class="text-center">Add Product</h1>
+<div class="add-form-div">
+    <form [formGroup]="form" (submit)="onSubmit()">
+        <kendo-formfield>
+            <kendo-label [for]="productName" text="Product Name"></kendo-label>
+            <kendo-textbox #productName formControlName="productName" required></kendo-textbox>
+            <kendo-formhint>Please, enter Product name.</kendo-formhint>
+            <kendo-formerror>Error: Product name is required.</kendo-formerror>
+        </kendo-formfield>
+        <kendo-formfield>
+            <kendo-label [for]="price" text="Price"></kendo-label>
+            <kendo-textbox #price formControlName="price" required></kendo-textbox>
+            <kendo-formhint>Please, enter Price.</kendo-formhint>
+            <kendo-formerror>Error: Price is required.</kendo-formerror>
+        </kendo-formfield>
+        
+        <kendo-dropdownlist formControlName="categoryId" [data]="listItems" textField="categoryName" valueField="categoryId" [defaultItem]="placeholder">
+      </kendo-dropdownlist>
+        <button type="submit" kendoButton fillMode="solid" themeColor="secondary">Add</button>
+        
+    </form>
+</div>

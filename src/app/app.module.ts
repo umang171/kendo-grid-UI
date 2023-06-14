@@ -7,12 +7,25 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http'
 import { InputsModule } from '@progress/kendo-angular-inputs';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { NavigationModule } from '@progress/kendo-angular-navigation';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LabelModule } from '@progress/kendo-angular-label';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+
+
+
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductListComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +33,12 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
     GridModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    InputsModule
+    InputsModule,
+    NavigationModule,
+    ReactiveFormsModule,
+    LabelModule,
+    ButtonsModule,
+    DropDownsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,7 +20,8 @@ namespace productAPI.Controllers
     {
       _productDbContext = productDbContext;
     }
-    [HttpGet]
+
+    [HttpGet("getProducts")]
     public async Task<IActionResult> getProducts(int ?pageSkip,int ?pageSize,string ?searchText,string ?orderBy,string ?dir)
     {
       JsonSerializerOptions options = new()
@@ -55,9 +56,25 @@ namespace productAPI.Controllers
           products = products.OrderByDescending(product => product.ProductName).Skip((int)pageSkip).Take((int)pageSize).ToList();
         else if (orderBy == "price")
           products = products.OrderByDescending(product => product.Price).Skip((int)pageSkip).Take((int)pageSize).ToList();
-        products = products.Skip((int)pageSkip).Take((int)pageSize).ToList();
+        else
+          products = products.Skip((int)pageSkip).Take((int)pageSize).ToList();
       }
       return Ok(new {products,total});
+    }
+    [HttpGet("getCategories")]
+    public async Task<IActionResult> getCategories()
+    {
+      return Ok(_productDbContext.Categories.ToList());
+    }
+    [HttpPost("addProduct")]
+    public async Task<IActionResult> addProduct([FromBody] Product product)
+    {
+      if (product == null)
+        return BadRequest();
+      await _productDbContext.AddAsync(product);
+      await _productDbContext.SaveChangesAsync();
+
+      return Ok(new {Message = "Product added Successfully"});
     }
   }
 }

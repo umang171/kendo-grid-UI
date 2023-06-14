@@ -1,3 +1,32 @@
-.product{
-    margin:15px;
-}
+
+  .title {
+    font-size: 18px;
+    margin: 0;
+  }
+  ul {
+    font-size: 14px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  .navbar{
+    background-color: black;
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  li {
+    margin: 0 9px;
+    padding: 2px 8px;
+  }
+  li:hover {
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+  }
+  .actions .k-button {
+    padding: 0;
+  }

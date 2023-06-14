@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace productAPI.Model
@@ -10,6 +10,6 @@ namespace productAPI.Model
         public int Price { get; set; }
         public int CategoryId { get; set; }
 
-        public virtual Category Category { get; set; } = null!;
+        public virtual Category? Category { get; set; } = null!;
     }
 }

@@ -1,0 +1,11 @@
+<h1>Products</h1>
+
+<div class="product">
+    <input type="text" placeholder="Search here" kendoTextBox (input)="searchProduct($event)">
+    <kendo-grid [data]="gridView" [pageable]="true" [sortable]="true" [sort]="sort" (sortChange)="sortChange($event)" [pageSize]="pageSize" [skip]="skip" (pageChange)="pageChange($event)">
+      <kendo-grid-column field="productId" title="ID"> </kendo-grid-column>
+      <kendo-grid-column field="productName" title="Name"> </kendo-grid-column>
+      <kendo-grid-column field="category.categoryName" title="Category"> </kendo-grid-column>
+      <kendo-grid-column field="price" title="Price"> </kendo-grid-column>
+    </kendo-grid>
+  </div>
